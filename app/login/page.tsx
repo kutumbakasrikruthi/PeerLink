@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged,getAdditionalUserInfo } from "firebase/auth";
 import { auth, db } from "@/lib/firebase";
 import { toast } from "sonner";
 import { doc, setDoc } from "firebase/firestore";
@@ -14,8 +14,8 @@ export default function LoginPage() {
     const provider = new GoogleAuthProvider();
     try {
       const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      const isNewUser = result._tokenResponse?.isNewUser;
+const user = result.user;
+const isNewUser = getAdditionalUserInfo(result)?.isNewUser;
 
       if (isNewUser) {
         await setDoc(doc(db, "users", user.uid), {

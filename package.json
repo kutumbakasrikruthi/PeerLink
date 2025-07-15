@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
+    "@genkit-ai/googleai": "^1.14.1",
     "@headlessui/react": "^2.2.4",
     "@next-auth/firebase-adapter": "^2.0.1",
     "firebase": "^11.10.0",
+    "glob": "^11.0.3",
     "googleapis": "^152.0.0",
     "next": "15.3.5",
     "next-auth": "^4.24.11",
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.11",
+    "@types/glob": "^9.0.0",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
